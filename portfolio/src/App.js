@@ -4,6 +4,7 @@ import vid1 from "./video/1.mp4";
 import vid2 from "./video/2.mp4";
 import th1 from "./th1.jpg";
 import th2 from "./th2.jpg";
+
 const images = [];
 for (let i = 1; i <= 35; i++) {
   images.push(require(`../public/img/${i}.jpg`));
@@ -18,12 +19,21 @@ const ImageContainer = styled.div`
 const MediaContainer = styled.div`
   position: relative;
   width: calc(100% - 100px);
-  margin: ${(props) => (props.noMargin ? "0px 250px" : "1px 250px")};
+  margin: ${(props) =>
+    props.noMargin
+      ? "0px 250px"
+      : props.index >= 17 && props.index <= 18
+      ? "0px 250px"
+      : props.index >= 19 && props.index <= 20
+      ? "0px 250px"
+      : props.index >= 22 && props.index <= 23
+      ? "0px 250px"
+      : "0px 250px"};
   overflow: hidden;
   ${(props) =>
-    (props.noMargin && props.index >= 17 && props.index < 18) ||
-    (props.noMargin && props.index >= 18 && props.index <= 19) ||
-    (props.noMargin && props.index > 21 && props.index < 23)
+    (props.noMargin && props.index >= 17 && props.index <= 18) ||
+    (props.noMargin && props.index >= 19 && props.index <= 20) ||
+    (props.noMargin && props.index >= 22 && props.index <= 23)
       ? "line-height: 0;"
       : ""};
 `;
@@ -81,9 +91,9 @@ function App() {
               key={index}
               onClick={() => handleVideoClick(index)}
               noMargin={
-                (index >= 17 && index < 18) ||
-                (index >= 21 && index <= 23) ||
-                (index >= 19 && index <= 20)
+                (index >= 19 && index < 20) ||
+                (index >= 22 && index < 23) ||
+                (index >= 17 && index < 18)
               }
               index={index}
             >
