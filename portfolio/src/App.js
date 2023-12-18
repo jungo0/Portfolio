@@ -21,14 +21,14 @@ const MediaContainer = styled.div`
   width: calc(100% - 100px);
   margin: ${(props) =>
     props.noMargin
-      ? "0px 250px"
+      ? "0px 280px"
       : props.index >= 17 && props.index <= 18
-      ? "0px 250px"
+      ? "0px 280px"
       : props.index >= 19 && props.index <= 20
-      ? "0px 250px"
+      ? "0px 280px"
       : props.index >= 22 && props.index <= 23
-      ? "0px 250px"
-      : "0px 250px"};
+      ? "0px 280px"
+      : "0px 280px"};
   overflow: hidden;
   ${(props) =>
     (props.noMargin && props.index >= 17 && props.index <= 18) ||
