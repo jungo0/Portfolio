@@ -4,9 +4,8 @@ import vid1 from "./video/1.mp4";
 import vid2 from "./video/2.mp4";
 import th1 from "./th1.jpg";
 import th2 from "./th2.jpg";
-
 const images = [];
-for (let i = 4; i <= 35; i++) {
+for (let i = 1; i <= 35; i++) {
   images.push(require(`../public/img/${i}.jpg`));
 }
 
@@ -19,11 +18,11 @@ const ImageContainer = styled.div`
 const MediaContainer = styled.div`
   position: relative;
   width: calc(100% - 100px);
-  margin: ${(props) => (props.noMargin ? "0 250px" : "0px 250px")};
+  margin: ${(props) => (props.noMargin ? "0px 250px" : "1px 250px")};
   overflow: hidden;
   ${(props) =>
-    (props.noMargin && props.index >= 17 && props.index <= 21) ||
-    (!props.noMargin && props.index >= 22 && props.index <= 24)
+    (props.noMargin && props.index >= 16 && props.index <= 19) ||
+    (props.noMargin && props.index > 20 && props.index <= 23)
       ? "line-height: 0;"
       : ""};
 `;
@@ -53,6 +52,8 @@ const Thumbnail = styled.img`
   opacity: ${(props) => (props.isHidden ? 0 : 1)};
 `;
 
+// 나머지 부분은 그대로 유지
+
 function App() {
   const [thumbnailStates, setThumbnailStates] = useState([false, false]);
 
@@ -60,8 +61,8 @@ function App() {
     const video = document.getElementById(`video${index}`);
     if (video) {
       const updatedStates = [...thumbnailStates];
-      updatedStates[index === 29 ? 0 : 1] =
-        !thumbnailStates[index === 29 ? 0 : 1];
+      updatedStates[index === 32 ? 0 : 1] =
+        !thumbnailStates[index === 32 ? 0 : 1];
       setThumbnailStates(updatedStates);
 
       if (video.paused) {
@@ -81,20 +82,20 @@ function App() {
               key={index}
               onClick={() => handleVideoClick(index)}
               noMargin={
-                (index >= 17 && index <= 21) || (index >= 22 && index <= 24)
+                (index >= 16 && index <= 19) || (index >= 20 && index <= 23)
               }
               index={index}
             >
               <Image src={src} alt={`img${index + 1}`} />
-              {(index === 29 || index === 30) && (
+              {(index === 32 || index === 33) && (
                 <>
                   <Video loop muted={false} id={`video${index}`}>
-                    <source src={index === 29 ? vid1 : vid2} type="video/mp4" />
+                    <source src={index === 32 ? vid1 : vid2} type="video/mp4" />
                   </Video>
                   <Thumbnail
-                    src={index === 29 ? th1 : th2}
+                    src={index === 32 ? th1 : th2}
                     alt={`thumbnail${index + 1}`}
-                    isHidden={thumbnailStates[index === 29 ? 0 : 1]}
+                    isHidden={thumbnailStates[index === 32 ? 0 : 1]}
                   />
                 </>
               )}
