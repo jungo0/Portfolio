@@ -18,18 +18,6 @@ const MediaContainer = styled.div`
   position: relative;
   width: 100%;
   margin: 15px;
-
-  @media (min-width: 600px) {
-    width: 100%;
-  }
-
-  @media (min-width: 900px) {
-    width: 100%;
-  }
-
-  @media (min-width: 1200px) {
-    width: 100%;
-  }
 `;
 
 const Image = styled.img`
@@ -39,13 +27,27 @@ const Image = styled.img`
 const Video = styled.video`
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 380px;
-  height: 400px; /* 세로가 긴 동영상을 위해 height를 설정 */
-  object-fit: cover; /* 비율 유지하지 않음 */
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  max-height: 350px;
+  cursor: pointer; /* 클릭 가능한 커서 스타일 적용 */
 `;
+
 function App() {
+  const handleVideoClick = (index) => {
+    const video = document.getElementById(`video${index}`);
+    if (video) {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -53,8 +55,16 @@ function App() {
           {images.map((src, index) => (
             <MediaContainer key={index}>
               <Image src={src} alt={`img${index + 1}`} />
-              {index === 0 && <Video autoPlay loop muted src={vid1} />}
-              {index === 1 && <Video autoPlay loop muted src={vid2} />}
+              {(index === 0 || index === 1) && (
+                <Video
+                  loop
+                  muted
+                  id={`video${index}`}
+                  onClick={() => handleVideoClick(index)}
+                >
+                  <source src={index === 0 ? vid1 : vid2} type="video/mp4" />
+                </Video>
+              )}
             </MediaContainer>
           ))}
         </ImageContainer>
