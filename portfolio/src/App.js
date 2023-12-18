@@ -33,9 +33,12 @@ const Video = styled.video`
   height: auto;
   max-width: 350px;
   max-height: 350px;
-  cursor: pointer; /* 클릭 가능한 커서 스타일 적용 */
-`;
+  cursor: pointer;
 
+  @media (max-width: 600px) {
+    max-width: 50%;
+  }
+`;
 function App() {
   const handleVideoClick = (index) => {
     const video = document.getElementById(`video${index}`);
