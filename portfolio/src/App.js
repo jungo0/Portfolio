@@ -56,15 +56,10 @@ function App() {
       <header className="App-header">
         <ImageContainer>
           {images.map((src, index) => (
-            <MediaContainer key={index}>
+            <MediaContainer key={index} onClick={() => handleVideoClick(index)}>
               <Image src={src} alt={`img${index + 1}`} />
               {(index === 0 || index === 1) && (
-                <Video
-                  loop
-                  muted
-                  id={`video${index}`}
-                  onClick={() => handleVideoClick(index)}
-                >
+                <Video loop muted id={`video${index}`}>
                   <source src={index === 0 ? vid1 : vid2} type="video/mp4" />
                 </Video>
               )}
