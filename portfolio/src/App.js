@@ -21,8 +21,9 @@ const MediaContainer = styled.div`
   margin: ${(props) => (props.noMargin ? "0px 250px" : "1px 250px")};
   overflow: hidden;
   ${(props) =>
-    (props.noMargin && props.index >= 16 && props.index <= 19) ||
-    (props.noMargin && props.index > 20 && props.index <= 23)
+    (props.noMargin && props.index >= 17 && props.index < 18) ||
+    (props.noMargin && props.index >= 18 && props.index <= 19) ||
+    (props.noMargin && props.index > 21 && props.index < 23)
       ? "line-height: 0;"
       : ""};
 `;
@@ -52,8 +53,6 @@ const Thumbnail = styled.img`
   opacity: ${(props) => (props.isHidden ? 0 : 1)};
 `;
 
-// 나머지 부분은 그대로 유지
-
 function App() {
   const [thumbnailStates, setThumbnailStates] = useState([false, false]);
 
@@ -82,7 +81,9 @@ function App() {
               key={index}
               onClick={() => handleVideoClick(index)}
               noMargin={
-                (index >= 16 && index <= 19) || (index >= 20 && index <= 23)
+                (index >= 17 && index < 18) ||
+                (index >= 21 && index <= 23) ||
+                (index >= 19 && index <= 20)
               }
               index={index}
             >
