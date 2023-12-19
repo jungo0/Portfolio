@@ -57,7 +57,7 @@ const Thumbnail = styled.img`
   top: 46%;
   left: 49.52%;
   transform: translate(-50%, -50%);
-  width: 25.27%;
+  width: 25%;
   height: 47%;
   cursor: pointer;
   opacity: ${(props) => (props.isHidden ? 0 : 1)};
