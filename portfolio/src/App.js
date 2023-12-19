@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import vid1 from "./video/1.mp4";
 import vid2 from "./video/2.mp4";
-import th1 from "./th1.jpg";
-import th2 from "./th2.jpg";
 import th from "./th.png";
 const images = [];
 for (let i = 1; i <= 35; i++) {
