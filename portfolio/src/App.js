@@ -55,9 +55,9 @@ const Video = styled.video`
 const Thumbnail = styled.img`
   position: absolute;
   top: 46%;
-  left: 49.5%;
+  left: 49.52%;
   transform: translate(-50%, -50%);
-  width: 25%;
+  width: 25.27%;
   height: 47%;
   cursor: pointer;
   opacity: ${(props) => (props.isHidden ? 0 : 1)};
