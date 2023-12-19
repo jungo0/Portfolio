@@ -4,7 +4,7 @@ import vid1 from "./video/1.mp4";
 import vid2 from "./video/2.mp4";
 import th1 from "./th1.jpg";
 import th2 from "./th2.jpg";
-
+import th from "./th.png";
 const images = [];
 for (let i = 1; i <= 35; i++) {
   images.push(require(`../public/img/${i}.jpg`));
@@ -57,8 +57,8 @@ const Thumbnail = styled.img`
   top: 46%;
   left: 49.52%;
   transform: translate(-50%, -50%);
-  width: 25%;
-  height: 47%;
+  width: 5%;
+  height: 7.2%;
   cursor: pointer;
   opacity: ${(props) => (props.isHidden ? 0 : 1)};
 `;
@@ -104,7 +104,7 @@ function App() {
                     <source src={index === 32 ? vid1 : vid2} type="video/mp4" />
                   </Video>
                   <Thumbnail
-                    src={index === 32 ? th1 : th2}
+                    src={index === 32 ? th : th}
                     alt={`thumbnail${index + 1}`}
                     isHidden={thumbnailStates[index === 32 ? 0 : 1]}
                   />
