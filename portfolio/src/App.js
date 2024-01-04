@@ -65,7 +65,7 @@ const Thumbnail = styled.img`
   height: auto;
 
   @media only screen and (max-width: 768px) {
-    display: none;
+    width: 10%;
   }
 `;
 
