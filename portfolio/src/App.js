@@ -48,6 +48,12 @@ const Video = styled.video`
   width: 100%;
   height: 100%;
   cursor: pointer;
+
+  @media only screen and (max-width: 768px) {
+    width: 24%;
+    left: 49.5%;
+    height: auto;
+  }
 `;
 
 const Thumbnail = styled.img`
@@ -57,9 +63,9 @@ const Thumbnail = styled.img`
   transform: translate(-50%, -50%);
   width: 20%;
   height: auto;
-  // 미디어 쿼리를 통한 스타일 조절
+
   @media only screen and (max-width: 768px) {
-    width: 40%;
+    width: 10%; // 모바일 화면일 때 더 작은 크기로 조절
   }
 `;
 
