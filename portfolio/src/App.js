@@ -65,7 +65,7 @@ const Thumbnail = styled.img`
   height: auto;
 
   @media only screen and (max-width: 768px) {
-    width: 10%; // 모바일 화면일 때 더 작은 크기로 조절
+    display: none;
   }
 `;
 
