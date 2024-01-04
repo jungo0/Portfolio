@@ -16,17 +16,17 @@ const ImageContainer = styled.div`
 
 const MediaContainer = styled.div`
   position: relative;
-  width: calc(100% - 100px);
+  width: calc(100% - 20px);
   margin: ${(props) =>
     props.noMargin
-      ? "0px 280px"
+      ? "0px 20px"
       : props.index >= 17 && props.index <= 18
-      ? "0px 280px"
+      ? "0px 20px"
       : props.index >= 19 && props.index <= 20
-      ? "0px 280px"
+      ? "0px 20px"
       : props.index >= 22 && props.index <= 23
-      ? "0px 280px"
-      : "0px 280px"};
+      ? "0px 20px"
+      : "0px 20px"};
   overflow: hidden;
   ${(props) =>
     (props.noMargin && props.index >= 17 && props.index <= 18) ||
@@ -43,22 +43,24 @@ const Image = styled.img`
 const Video = styled.video`
   position: absolute;
   top: 46%;
-  left: 49.5%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
-  height: 47%;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 `;
 
 const Thumbnail = styled.img`
   position: absolute;
   top: 46%;
-  left: 49.52%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 5%;
-  height: 7.2%;
-  cursor: pointer;
-  opacity: ${(props) => (props.isHidden ? 0 : 1)};
+  width: 20%;
+  height: auto;
+  // 미디어 쿼리를 통한 스타일 조절
+  @media only screen and (max-width: 768px) {
+    width: 40%;
+  }
 `;
 
 function App() {
