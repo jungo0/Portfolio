@@ -45,11 +45,12 @@ const Video = styled.video`
   top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 24%;
+  left: 49.5%;
   height: 100%;
   cursor: pointer;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1768px) {
     width: 24%;
     left: 49.5%;
     height: auto;
@@ -61,7 +62,7 @@ const Thumbnail = styled.img`
   top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20%;
+  width: 10%;
   height: auto;
 
   @media only screen and (max-width: 768px) {
